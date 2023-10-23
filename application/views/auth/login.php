@@ -32,7 +32,7 @@
                 <div class="col-sm-offset-2 col-sm-10">
 
                     <?php echo form_submit(['name'=>'submit', 'value'=>'Submit', 'class'=>'btn btn-primary']); ?>
-                    <a href="http://localhost/proiect/index.php/register" class="btn btn-primary">Go to register</a>
+                    <a href="<?=base_url('register')?>" class="btn btn-primary">Go to register</a>
                 </div>
         </form>
     </div>    

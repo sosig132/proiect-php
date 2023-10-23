@@ -7,8 +7,8 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a href="http://localhost/proiect/index.php/register" class="btn btn-primary m-3">Sign up</a>
-    <a href="http://localhost/proiect/index.php/login" class="btn btn-primary">Sign in</a>
+    <a href="<?=base_url('register')?>" class="btn btn-primary m-3">Sign up</a>
+    <a href="<?=base_url('login')?>" class="btn btn-primary">Sign in</a>
 </nav>
 </body>
 </html>

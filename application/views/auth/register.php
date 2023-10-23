@@ -63,7 +63,7 @@
 
                     <?php echo form_submit(['name'=>'submit', 'value'=>'Submit', 'class'=>'btn btn-primary']); ?>
                     <button type="button" class="btn btn-primary remove">Cancel</button>
-                    <a href="http://localhost/proiect/index.php/login" class="btn btn-primary">Go to login</a>
+                    <a href="<?=base_url('login')?>" class="btn btn-primary">Go to login</a>
                 </div>
         </form>
     </div>  
