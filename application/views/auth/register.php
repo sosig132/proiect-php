@@ -9,6 +9,13 @@
 
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="btn btn-primary m-3" href="<?= base_url('home'); ?>">Home</a>
+    </nav>
+
+    <?php if($this->session->flashdata('error')){
+        echo '<div class="alert alert-danger" role="alert">'.$this->session->flashdata('error').'</div>';
+    } ?>
 
 
     <div class="container">

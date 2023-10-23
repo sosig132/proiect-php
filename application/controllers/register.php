@@ -98,7 +98,8 @@ class Register extends CI_Controller{
                     $data['avatar'] = $avatar_name;
                 } else {
                     $error = $this->upload->display_errors();
-                    echo $error;
+                    $this->session->set_flashdata('error', $error);
+                    redirect(base_url('register'));
                     return;
                 }    
                 

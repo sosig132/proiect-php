@@ -2,6 +2,9 @@
 </head>
 <body>
 <?php //echo validation_errors(); ?>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="btn btn-primary m-3" href="<?= base_url('home'); ?>">Home</a>
+</nav>
     <div class="container">
         <h1>LOGIN</h1>
         <form action="<?php echo base_url('login') ?>" method="POST">
