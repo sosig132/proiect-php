@@ -1,6 +1,5 @@
 
 
-
 </head>
 <body style = "height:100%">
     <?php 
@@ -8,7 +7,7 @@
 
         $auth_userdetails = $this->session->userdata('auth_user');
         $user_id = $auth_userdetails['id'];
-        
+
     ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="btn btn-primary m-3" href="<?= base_url('logout'); ?>">Logout</a>
@@ -60,3 +59,4 @@
         </ul>
 
     </div>
+    

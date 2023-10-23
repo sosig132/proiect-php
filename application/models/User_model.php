@@ -11,9 +11,6 @@ class User_model extends CI_Model{
         $this->load->library('encryption');
     }
 
-
-    
-
     public function register($data){
         
         //INSERT INTO users VALUES($data);

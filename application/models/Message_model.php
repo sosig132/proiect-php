@@ -2,11 +2,6 @@
 
 
 class Message_model extends CI_Model{
-    public $id;
-    public $content;
-    public $created_at;
-    public $user_id;
-
     public function __construct(){
         parent::__construct();
     }
