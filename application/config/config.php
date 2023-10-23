@@ -68,7 +68,7 @@ $config['uri_protocol']	= 'REQUEST_URI';
 */
 $config['url_suffix'] = '';
 
-$config['encryption_key'] = hex2bin('29b85967d4a1ba2c443f85f77529b28e');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -328,7 +328,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/userguide3/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = hex2bin('29b85967d4a1ba2c443f85f77529b28e');
 
 /*
 |--------------------------------------------------------------------------

@@ -6,7 +6,9 @@
         <h1>LOGIN</h1>
         <form action="<?php echo base_url('login') ?>" method="POST">
             
-
+            <?php 
+                echo $this->session->flashdata('login_failed');
+            ?>
             <div class="form-group">
                 <label for="emailphone" class="col-sm-2 control-label">Email/Phone</label>
                 <div class="col-sm-10">
@@ -30,6 +32,7 @@
                 <div class="col-sm-offset-2 col-sm-10">
 
                     <?php echo form_submit(['name'=>'submit', 'value'=>'Submit', 'class'=>'btn btn-primary']); ?>
+                    <a href="http://localhost/proiect/index.php/register" class="btn btn-primary">Go to register</a>
                 </div>
         </form>
     </div>    

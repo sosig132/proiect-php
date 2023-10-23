@@ -5,6 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  *  @property form_validation $form_validation 
  *  @property User_model $user
+ *  @property encryption $encryption
+
  */
 
 class Login extends CI_Controller{
@@ -16,11 +18,19 @@ class Login extends CI_Controller{
     }
 
     public function index(){
-        $this->load->view('templates/header');
-        $this->load->view('auth/login');
-        $this->load->view('templates/footer');
+        if(!$this->session->userdata('authenticated')){
+            $this->load->view('templates/header');
+            $this->load->view('auth/login');
+            $this->load->view('templates/footer');
+        }
+        else{
+            redirect(base_url('main'));
+        }
     }
     
+
+    //session authentication
+
     public function login(){
         
         $email_or_phone = $this->input->post('emailphone');
@@ -30,16 +40,27 @@ class Login extends CI_Controller{
 
         $logged_user = $user->login($email_or_phone, $password);
         if($logged_user){
-            $this->session->set_userdata('user_id', $logged_user->id);
-            $this->session->set_userdata('user_name', $logged_user->name);
-            $this->session->set_userdata('user_email', $logged_user->email);
-            $this->session->set_userdata('user_phone', $logged_user->phone);
-            $this->session->set_userdata('user_avatar', $logged_user->avatar);
-            redirect('home');
+
+            $auth_userdetails=[
+                'id' => $logged_user->id,
+                'name'=> $logged_user->name,
+                'email'=> $logged_user->email,
+                'phone'=> $logged_user->phone,
+                'avatar'=> $logged_user->avatar
+            ];
+        
+            
+
+            $this->session->set_userdata('authenticated','1');
+            $this->session->set_userdata('auth_user', $auth_userdetails);
+
+
+            redirect(base_url('main'));
         }
         else{
             $this->session->set_flashdata('login_failed', 'Invalid email/phone or password');
-            redirect('login');
+            redirect(base_url('login'));
         }
     }
 }
+?>

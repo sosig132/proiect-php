@@ -58,13 +58,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['home'] 					= 'home';
 
+
 //login and register
 $route['login']['GET'] 					= 'login/index';
 $route['login']['POST'] 					= 'login/login';
 $route['register']['POST'] 				= 'register/register';
 $route['register']['GET'] 				= 'register/index';
 
-
+//main is the feed
+$route['main']['GET'] = 'message/index';
+$route['main']['POST'] = 'message/post_message';
+$route['logout'] = 'logout/logout';
+$route['delete_message/(:any)'] = 'message/delete_message/$1';
 $route['default_controller'] 	= 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

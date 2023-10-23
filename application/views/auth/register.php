@@ -1,5 +1,3 @@
-
-
 <script >
     $(document).ready(function() {
         $('.remove').click(function() {
@@ -65,8 +63,7 @@
 
                     <?php echo form_submit(['name'=>'submit', 'value'=>'Submit', 'class'=>'btn btn-primary']); ?>
                     <button type="button" class="btn btn-primary remove">Cancel</button>
+                    <a href="http://localhost/proiect/index.php/login" class="btn btn-primary">Go to login</a>
                 </div>
         </form>
-    </div>    
-
-
+    </div>  

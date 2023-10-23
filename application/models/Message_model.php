@@ -10,23 +10,31 @@ class Message_model extends CI_Model{
     public function __construct(){
         parent::__construct();
     }
-    public function get_by_user_id($user_id){
-        $this->db->where('user_id', $user_id);
-        $query = $this->db->get('messages');
+
+    public function get_messages(){
+
+        //we do an inner join because we only want info about users that have posted messages
+
+        $this->db->select('messages.*, users.name, users.avatar');
+        $this->db->from('messages');
+        $this->db->join('users', 'users.id = messages.user_id', 'inner');
+        $this->db->order_by('messages.created_at', 'DESC');
+        $query = $this->db->get();
         return $query->result();
     }
 
-    /*public function post_message(){
-        $this->content = $this->input->post('content');
-        $this->created_at = date('Y-m-d H:i:s');
-        $this->user_id = $this->session->userdata('user_id');
-        $this->db->insert('messages', $this);
-    }*/
+    public function delete_message($id){
+        $this->db->where('id', $id);
+        return $this->db->delete('messages');
+    }
+
+
+
     public function post_message($user_id){
         $this->content = $this->input->post('content');
         $this->created_at = date('Y-m-d H:i:s');
         $this->user_id = $user_id;
-        $this->db->insert('messages', $this);
+        return $this->db->insert('messages', $this);
     }
     
 }
