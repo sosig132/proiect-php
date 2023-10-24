@@ -34,5 +34,6 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 #ignore images
 
 *.png
+!default.png
 *.jpg
 *.gif

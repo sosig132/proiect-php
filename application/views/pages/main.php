@@ -40,8 +40,17 @@
         <ul class="list-unstyled">
             <?php foreach ($messages as $message): ?>
                 <?php 
-                            $imageFilename = $message->avatar;
-                            $imagePath = "../uploads/" . $imageFilename ?>
+                            //case when we lost image from server
+                            $imageFilename = "default.png";
+                            if(realpath(APPPATH."../uploads/" . $message->avatar)){
+
+                                $imageFilename = $message->avatar;
+                            }
+                            
+                            $imagePath = "../uploads/" . $imageFilename;
+                            
+                            ?>
+                            
                 <li class="media border p-3 mb-3">
                     <img src="<?php echo $imagePath; ?>" class=" mr-3 rounded-circle" alt="User Avatar" width="50" height="50">
                     <div class="media-body">
